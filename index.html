@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inż. Tomasz Kordek - Usługi Inżynierskie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #F08B24;
+            --primary-dark: #E87E04;
+            --secondary-color: #333333;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* NAGŁÓWEK */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary-color);
+        }
+        
+        /* HERO SEKCJA */
+        .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* O FIRMIE */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* USŁUGI */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* REALIZACJE */
+        .projects {
+            padding: 80px 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            position: relative;
+            height: 300px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+        
+        .project-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .project-subtitle {
+            color: var(--white);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        /* DLACZEGO WARTO */
+        .why-me {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .why-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .why-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .why-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .why-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        /* KONTAKT */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            text-align: center;
+        }
+        
+        /* STOPKA */
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-about {
+            margin-top: 15px;
+            color: #bbb;
+            line-height: 1.7;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* MENU MOBILNE */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--secondary-color);
+            z-index: 2000;
+            padding: 20px;
+            transition: right 0.3s;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .close-menu {
+            color: var(--white);
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        
+        .mobile-links {
+            list-style: none;
+            margin-top: 50px;
+        }
+        
+        .mobile-links li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* MEDIA QUERIES */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                order: 2;
+            }
+            
+            .about-image {
+                order: 1;
+                margin-bottom: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="Logo inż. Tomasz Kordek">
+                <div class="logo-text">inż. Tomasz Kordek</div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Strona główna</a></li>
+                    <li><a href="#about">O mnie</a></li>
+                    <li><a href="#why-me">Dlaczego ja?</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#projects">Realizacje</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <div class="header-contact" style="display: none; margin-left: 20px;">
+                    <a href="tel:+48123456789" style="display: flex; align-items: center; text-decoration: none; color: var(--secondary-color);">
+                        <i class="fas fa-phone" style="margin-right: 8px; color: var(--primary-color);"></i>
+                        <span>+48 123 456 789</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-menu">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-links">
+            <li><a href="#home">Strona główna</a></li>
+            <li><a href="#about">O mnie</a></li>
+            <li><a href="#why-me">Dlaczego ja?</a></li>
+            <li><a href="#services">Usługi</a></li>
+            <li><a href="#projects">Realizacje</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1 class="hero-title">Profesjonalne Usługi Inżynierskie</h1>
+            <p class="hero-subtitle">Nadzór budowlany i kierowanie budową - specjalizacja w budownictwie jednorodzinnym</p>
+            <a href="#contact" class="btn">Skontaktuj się</a>
+        </div>
+    </section>
+
+    <!-- O MNIE -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>O mnie</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Z przyjemnością przedstawiam swoją ofertę usług inżynierskich w zakresie budownictwa jednorodzinnego. Posiadam uprawnienia budowlane bez ograniczeń do kierowania robotami budowlanymi w specjalności konstrukcyjno-budowlanej oraz ponad 15-letnie doświadczenie w branży, które gwarantuje profesjonalne podejście do każdego projektu.</p>
+                    
+                    <p>Jako <strong>kierownik budowy</strong> i <strong>inspektor nadzoru inwestorskiego</strong> zapewniam kompleksową obsługę procesu budowlanego zgodnie z wymogami prawa budowlanego, projektem, pozwoleniem na budowę, przepisami BHP oraz zasadami sztuki budowlanej.</p>
+                    
+                    <p>Specjalizuję się w kompleksowej obsłudze inwestycji budowlanych - od weryfikacji projektu, przez uzyskanie pozwoleń, po nadzór nad realizacją. Każdy projekt traktuję indywidualnie, dostosowując rozwiązania do potrzeb i oczekiwań klienta.</p>
+                    
+                    <p>Oferuję:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>Prowadzenie dokumentacji budowy (dziennik budowy, protokoły, oświadczenia)</li>
+                        <li>Koordynację prac podwykonawców i weryfikację jakości wykonywanych robót</li>
+                        <li>Reprezentowanie inwestora przed urzędami</li>
+                        <li>Kontrolę zgodności realizacji z projektem i harmonogramem</li>
+                        <li>Odbiory częściowe i końcowe oraz udział w odbiorach technicznych</li>
+                    </ul>
+                    
+                    <p>Moim priorytetem jest najwyższa jakość usług, terminowość oraz transparentność współpracy. Dzięki połączeniu wiedzy technicznej, doświadczenia i zaangażowania, pomagam klientom realizować marzenia o własnym domu w sposób profesjonalny i efektywny.</p>
+                    
+                    <p>Zapraszam do zapoznania się z moją ofertą i do kontaktu w celu omówienia szczegółów współpracy.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="inż. Tomasz Kordek">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DLACZEGO WARTO WYBRAĆ MNIE -->
+    <section class="why-me" id="why-me" style="padding: 80px 0; background-color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dlaczego warto mnie wybrać?</h2>
+            </div>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p>Współpraca ze mną to gwarancja profesjonalnego podejścia do każdego etapu procesu budowlanego i pewność, że Twoja inwestycja będzie realizowana zgodnie z najwyższymi standardami.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="text-align: center; padding: 30px 20px; background-color: var(--light-gray); border-radius: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary-color);">Pełne uprawnienia</h3>
+                    <p>Posiadam uprawnienia budowlane bez ograniczeń do kierowania robotami budowlanymi w specjalności konstrukcyjno-budowlanej oraz jestem członkiem Mazowieckiej Izby Inżynierów Budownictwa.</p>
+                </div>
+                <div style="text-align: center; padding: 30px 20px; background-color: var(--light-gray); border-radius: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary-color);">15+ lat doświadczenia</h3>
+                    <p>Przez ponad 15 lat zrealizowałem dziesiątki projektów budowlanych, pełniąc funkcję kierownika budowy i inspektora nadzoru przy budowie domów jednorodzinnych.</p>
+                </div>
+                <div style="text-align: center; padding: 30px 20px; background-color: var(--light-gray); border-radius: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary-color);">Kontrola jakości</h3>
+                    <p>Rygorystyczne podejście do kontroli jakości wykonywanych prac i używanych materiałów gwarantuje wysoką jakość końcową budynku i długotrwałe zadowolenie inwestora.</p>
+                </div>
+                <div style="text-align: center; padding: 30px 20px; background-color: var(--light-gray); border-radius: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary-color);">Optymalizacja kosztów</h3>
+                    <p>Pomagam inwestorom w optymalnym wykorzystaniu budżetu poprzez doradztwo w zakresie wyboru materiałów i technologii oraz kontrolę kosztów na każdym etapie budowy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USŁUGI -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Moje usługi</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Kierownik budowy</h3>
+                        <p>Pełnienie funkcji kierownika budowy zgodnie z wymogami prawa budowlanego. W zakres usługi wchodzi:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Protokolarne przejęcie placu budowy od inwestora</li>
+                            <li>Prowadzenie dokumentacji budowy</li>
+                            <li>Koordynacja i nadzór nad pracami budowlanymi</li>
+                            <li>Weryfikacja zgodności wykonywanych robót z projektem</li>
+                            <li>Zgłaszanie zakończenia budowy do odpowiednich organów</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Inspektor nadzoru</h3>
+                        <p>Profesjonalny nadzór inwestorski nad realizacją projektu budowlanego, reprezentujący interesy inwestora. Usługa obejmuje:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Kontrolę jakości wykonywanych prac</li>
+                            <li>Weryfikację materiałów budowlanych</li>
+                            <li>Udział w odbiorach technicznych instalacji</li>
+                            <li>Monitoring postępu prac i zgodności z harmonogramem</li>
+                            <li>Kontrolę dokumentacji powykonawczej</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Odbiory mieszkań i domów</h3>
+                        <p>Profesjonalny odbiór techniczny mieszkań i domów od dewelopera lub wykonawcy. W ramach usługi:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Szczegółowa kontrola wszystkich pomieszczeń</li>
+                            <li>Weryfikacja instalacji wodno-kanalizacyjnej i elektrycznej</li>
+                            <li>Sprawdzenie jakości wykonania elementów wykończeniowych</li>
+                            <li>Opracowanie protokołu z wykrytymi wadami i usterkami</li>
+                            <li>Udział w odbiorach poprawkowych</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Przeglądy okresowe</h3>
+                        <p>Wykonywanie przeglądów wymaganych przez prawo budowlane oraz przeglądy specjalistyczne na zlecenie:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Przeglądy roczne i pięcioletnie budynków</li>
+                            <li>Kontrola stanu technicznego obiektu</li>
+                            <li>Identyfikacja potencjalnych problemów</li>
+                            <li>Opinia techniczna z zaleceniami konserwacyjnymi</li>
+                            <li>Protokoły do użytku administracyjnego</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Doradztwo techniczne</h3>
+                        <p>Profesjonalne wsparcie techniczne na każdym etapie inwestycji budowlanej, obejmujące:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Analizę dokumentacji projektowej</li>
+                            <li>Doradztwo w zakresie materiałów i technologii</li>
+                            <li>Konsultacje przy wyborze wykonawców</li>
+                            <li>Pomoc przy rozwiązywaniu problemów technicznych</li>
+                            <li>Optymalizację kosztów budowy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/api/placeholder/400/200');"></div>
+                    <div class="service-content">
+                        <h3>Kosztorysowanie</h3>
+                        <p>Profesjonalne kosztorysy budowlane i wyceny inwestycji, zawierające:</p>
+                        <ul style="margin-left: 15px; margin-top: 10px; font-size: 0.9rem;">
+                            <li>Szczegółowe kosztorysy inwestorskie</li>
+                            <li>Przedmiary robót</li>
+                            <li>Zestawienia materiałowe</li>
+                            <li>Analizę ekonomiczną rozwiązań budowlanych</li>
+                            <li>Weryfikację kosztorysów oferentów</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REALIZACJE -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Realizacje</h2>
+            </div>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p>Poniżej przedstawiam wybrane projekty, przy których pełniłem funkcję kierownika budowy lub inspektora nadzoru inwestorskiego. Każda realizacja to efekt profesjonalnej współpracy z inwestorem i wykonawcami, dbałości o szczegóły oraz przestrzegania najwyższych standardów sztuki budowlanej.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dom jednorodzinny w Warszawie</h3>
+                        <p class="project-subtitle">Kierownik budowy | 240m² | 2024</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dom parterowy w Konstancinie</h3>
+                        <p class="project-subtitle">Inspektor nadzoru | 180m² | 2023</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dom energooszczędny w Piasecznie</h3>
+                        <p class="project-subtitle">Kierownik budowy | 210m² | 2023</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Rozbudowa domu w Otwocku</h3>
+                        <p class="project-subtitle">Nadzór inwestorski | 2022</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dom piętrowy z garażem</h3>
+                        <p class="project-subtitle">Kierownik budowy | 250m² | 2022</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dom w zabudowie bliźniaczej</h3>
+                        <p class="project-subtitle">Kierownik budowy | 2x160m² | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                            <li>Opinia techniczna z zaleceniami                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Imię i nazwisko" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Telefon">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option value="" disabled selected>Wybierz usługę</option>
+                                <option value="kierownik">Kierownik budowy</option>
+                                <option value="inspektor">Inspektor nadzoru</option>
+                                <option value="odbiory">Odbiory techniczne</option>
+                                <option value="przeglady">Przeglądy okresowe</option>
+                                <option value="doradztwo">Doradztwo techniczne</option>
+                                <option value="kosztorysowanie">Kosztorysowanie</option>
+                                <option value="inne">Inne zapytanie</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Wiadomość" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: #666;">
+                                <input type="checkbox" required style="margin-top: 4px;">
+                                <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką RODO.</span>
+                            </label>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">Wyślij wiadomość</button>
+                        </div>
