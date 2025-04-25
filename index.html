@@ -124,12 +124,53 @@
         /* HERO SEKCJA */
         .hero {
             height: 650px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/IMG_7413.JPG') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 80px;
             position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        
+        .slideshow {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: slideshow 30s infinite ease-in-out;
+        }
+        
+        .slide {
+            width: 33.33%;
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .slide-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        @keyframes slideshow {
+            0% { left: 0; }
+            25% { left: 0; }
+            33.33% { left: -100%; }
+            58.33% { left: -100%; }
+            66.66% { left: -200%; }
+            91.66% { left: -200%; }
+            100% { left: 0; }
         }
         
         .hero::before {
@@ -146,10 +187,13 @@
         .hero-content {
             text-align: center;
             color: var(--white);
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 2;
             max-width: 800px;
-            padding: 0 20px;
+            width: 90%;
         }
         
         .hero-title {
@@ -668,10 +712,47 @@
             color: var(--primary-color);
         }
         
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(240, 139, 36, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .form-submit {
+            text-align: center;
+        }
+        
         .google-map {
             width: 100%;
+            max-width: 800px;
             height: 400px;
-            margin-top: 40px;
+            margin: 40px auto 0;
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -928,7 +1009,7 @@
     <header class="header">
         <div class="container header-content">
             <div class="logo">
-                <img src="images/lew.jpg" alt="Logo inż. Tomasz Kordek">
+                <img src="images/wizytowka.jpg" alt="Logo inż. Tomasz Kordek">
                 <div class="logo-text">inż. Tomasz Kordek</div>
             </div>
             <nav>
@@ -955,345 +1036,4 @@
             <li><a href="#home">Strona główna</a></li>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#why-me">Dlaczego ja?</a></li>
-            <li><a href="#services">Usługi</a></li>
-            <li><a href="#projects">Realizacje</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
-    </div>
-    <div class="overlay"></div>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1 class="hero-title">KTM</h1>
-            <p class="hero-subtitle">Kierownik budowy • Inspektor nadzoru • Przeglądy techniczne • Świadectwa charakterystyki energetycznej</p>
-            <a href="#contact" class="btn">Skontaktuj się tutaj</a>
-        </div>
-    </section>
-
-    <!-- O MNIE -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>O mnie</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Z przyjemnością przedstawiam swoją ofertę usług inżynierskich w zakresie budownictwa. Posiadam uprawnienia budowlane bez ograniczeń do kierowania robotami budowlanymi w specjalności konstrukcyjno-budowlanej oraz wieloletnie doświadczenie w branży budowlanej, które gwarantuje profesjonalne podejście do każdego projektu.</p>
-                    
-                    <p>Jako <strong>kierownik budowy</strong> i <strong>inspektor nadzoru inwestorskiego</strong> zapewniam kompleksową obsługę procesu budowlanego zgodnie z wymogami prawa budowlanego, projektem, pozwoleniem na budowę, przepisami BHP oraz zasadami sztuki budowlanej.</p>
-                    
-                    <p>Specjalizuję się w kompleksowej obsłudze inwestycji budowlanych - od weryfikacji projektu, przez uzyskanie pozwoleń, po nadzór nad realizacją. Każdy projekt traktuję indywidualnie, dostosowując rozwiązania do potrzeb i oczekiwań klienta.</p>
-                    
-                    <p>Moim priorytetem jest najwyższa jakość usług, terminowość oraz transparentność współpracy. Dzięki połączeniu wiedzy technicznej, doświadczenia i zaangażowania, pomagam klientom realizować inwestycje w sposób profesjonalny i efektywny.</p>
-                    
-                    <div class="about-documents">
-                        <a href="uprawnienia TK.pdf" target="_blank" class="document-link">
-                            <i class="fas fa-file-pdf"></i> Uprawnienia budowlane
-                        </a>
-                        <a href="SLK-B9K-E87-C2F.pdf" target="_blank" class="document-link">
-                            <i class="fas fa-file-pdf"></i> Zaświadczenie ŚOIIB
-                        </a>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/Marcin_czolg.jpg" alt="inż. Tomasz Kordek">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DLACZEGO WARTO WYBRAĆ MNIE -->
-    <section class="why-me" id="why-me">
-        <div class="container">
-            <div class="section-title">
-                <h2>Dlaczego warto mnie wybrać?</h2>
-            </div>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p>Współpraca ze mną to gwarancja profesjonalnego podejścia do każdego etapu procesu budowlanego i pewność, że Twoja inwestycja będzie realizowana zgodnie z najwyższymi standardami.</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="why-title">Pełne uprawnienia</h3>
-                    <p>Posiadam uprawnienia budowlane bez ograniczeń do kierowania robotami w specjalności konstrukcyjno-budowlanej oraz jestem członkiem Śląskiej Izby Inżynierów Budownictwa.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h3 class="why-title">Doświadczenie od 2013 roku</h3>
-                    <p>Od pracy fizycznej na budowie po zarządzanie projektami. Uczestniczyłem w dziesiątkach projektów budowlanych, pełniąc funkcję kierownika budowy, inspektora nadzoru czy inżyniera budowy.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-check-double"></i>
-                    </div>
-                    <h3 class="why-title">Bezpieczeństwo i jakość</h3>
-                    <p>Rygorystyczne podejście do kontroli jakości wykonywanych prac i używanych materiałów gwarantuje wysoką jakość końcową budynku i długotrwałe zadowolenie inwestora.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="why-title">Optymalizacja kosztów</h3>
-                    <p>Doradztwo w zakresie wyboru materiałów i technologii oraz kontrola kosztów na każdym etapie budowy pozwala na optymalne wykorzystanie budżetu inwestycji.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- USŁUGI -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Moje usługi</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('images/IMG_1247.jpg');"></div>
-                    <div class="service-content">
-                        <h3>Kierownik budowy</h3>
-                        <p>Pełnienie funkcji kierownika budowy zgodnie z wymogami prawa budowlanego. Koordynacja prac, prowadzenie dokumentacji, nadzór nad zgodnością wykonania z projektem oraz przepisami. Odpowiedzialność za bezpieczeństwo na budowie.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('images/IMG_5631.JPG');"></div>
-                    <div class="service-content">
-                        <h3>Inspektor nadzoru</h3>
-                        <p>Profesjonalny nadzór inwestorski nad realizacją projektu budowlanego. Kontrola jakości wykonywanych prac, weryfikacja materiałów, monitoring postępu prac i zgodności z harmonogramem. Reprezentowanie interesów inwestora.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-container">
-                        <i class="fas fa-search service-large-icon"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Przeglądy techniczne</h3>
-                        <p>Wykonywanie przeglądów wymaganych przez prawo budowlane - przeglądy półroczne, roczne i pięcioletnie budynków. Identyfikacja potencjalnych problemów konstrukcyjnych. Protokoły do użytku administracyjnego.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('images/IMG_0263.jpg');"></div>
-                    <div class="service-content">
-                        <h3>Wyburzenia i rozbiórki</h3>
-                        <p>Kompleksowa dokumentacja i nadzór nad procesem rozbiórki z zachowaniem wymogów bezpieczeństwa. Zapewnienie zgodności z przepisami. Właściwa segregacja i utylizacja odpadów.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-container">
-                        <i class="fas fa-leaf service-large-icon"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Świadectwa energetyczne</h3>
-                        <p>Certyfikaty dla budynków mieszkalnych i komercyjnych. Dokumentacja niezbędna przy sprzedaży i wynajmie. Analiza efektywności energetycznej budynku i rekomendacje poprawy.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon-container">
-                        <i class="fas fa-chart-line service-large-icon"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Audyty energetyczne</h3>
-                        <p>Szczegółowa analiza zużycia energii w budynku. Propozycje opłacalnych rozwiązań termomodernizacyjnych. Wsparcie w procesie pozyskiwania dofinansowań na poprawę efektywności energetycznej.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REALIZACJE -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Realizacje</h2>
-            </div>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p>Poniżej przedstawiam wybrane projekty, przy których pełniłem funkcję kierownika budowy lub inspektora nadzoru inwestorskiego. Każda realizacja to efekt profesjonalnej współpracy i dbałości o najwyższe standardy.</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/IMG_7413.JPG');"></div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Budowa hali przemysłowej</h3>
-                        <p class="project-subtitle">Kompleksowy nadzór od fundamentów po wykończenie</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/IMG_0263.jpg');"></div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Wyburzenie budynku</h3>
-                        <p class="project-subtitle">Profesjonalne przeprowadzenie procesu rozbiórki</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/IMG_5631.JPG');"></div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Nadzór nad budową</h3>
-                        <p class="project-subtitle">Kontrola jakości i unikanie potencjalnych problemów</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kontakt</h2>
-            </div>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p>Zapraszam do kontaktu w celu omówienia szczegółów Twojej inwestycji budowlanej. Oferuję bezpłatną konsultację wstępną, podczas której omówimy zakres usług i możliwości współpracy.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Adres</h3>
-                            <p>ul. 1 Maja</p>
-                            <p>42-660 Kalety</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Telefon</h3>
-                            <p><a href="tel:+48792060707">+48 792 060 707</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p><a href="mailto:kordektomek@gmail.com">kordektomek@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Godziny pracy</h3>
-                            <p>Poniedziałek - Piątek: 8:00 - 18:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="google-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.8834127818893!2d18.887520576968093!3d50.56645397159967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710fe4318f11619%3A0x37ae6acacf136abd!2s1%20Maja%2C%2042-660%20Kalety!5e0!3m2!1spl!2spl!4v1714058424506!5m2!1spl!2spl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- STOPKA -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="footer-logo-text">inż. Tomasz Kordek</div>
-                    <div class="footer-about">
-                        Profesjonalne usługi inżynierskie w zakresie budownictwa. Oferuję pełnienie funkcji kierownika budowy oraz inspektora nadzoru inwestorskiego z uprawnieniami budowlanymi bez ograniczeń, wieloletnim doświadczeniem i gwarancją najwyższej jakości realizacji.
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Szybkie linki</h3>
-                    <ul>
-                        <li><a href="#home">Strona główna</a></li>
-                        <li><a href="#about">O mnie</a></li>
-                        <li><a href="#why-me">Dlaczego ja?</a></li>
-                        <li><a href="#services">Usługi</a></li>
-                        <li><a href="#projects">Realizacje</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Usługi</h3>
-                    <ul>
-                        <li><a href="#services">Kierownik budowy</a></li>
-                        <li><a href="#services">Inspektor nadzoru</a></li>
-                        <li><a href="#services">Przeglądy techniczne</a></li>
-                        <li><a href="#services">Wyburzenia i rozbiórki</a></li>
-                        <li><a href="#services">Świadectwa energetyczne</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 inż. Tomasz Kordek - Wszelkie prawa zastrzeżone</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- SKRYPTY -->
-    <script>
-        // Menu mobilne
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const closeMenu = document.querySelector('.close-menu');
-            const overlay = document.querySelector('.overlay');
-            const mobileLinks = document.querySelectorAll('.mobile-links a');
-
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.add('active');
-                    overlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-
-            function closeMenuFunc() {
-                if (mobileMenu) {
-                    mobileMenu.classList.remove('active');
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            }
-
-            if (closeMenu) {
-                closeMenu.addEventListener('click', closeMenuFunc);
-            }
-
-            if (overlay) {
-                overlay.addEventListener('click', closeMenuFunc);
-            }
-
-            if (mobileLinks) {
-                mobileLinks.forEach(function(link) {
-                    link.addEventListener('click', closeMenuFunc);
-                });
-            }
-
-            // Płynne przewijanie do sekcji po kliknięciu w link
-            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+            <li><a href="#services">
