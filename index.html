@@ -120,7 +120,7 @@
             cursor: pointer;
             color: var(--secondary-color);
         }
-/* HERO SEKCJA */
+        /* HERO SEKCJA */
         .hero {
             height: 650px;
             position: relative;
@@ -130,17 +130,17 @@
         
         .slideshow {
             height: 100%;
-            width: 300%;
             position: absolute;
             left: 0;
             top: 0;
-            animation: slideshow 30s infinite ease-in-out;
+            width: 300%;
+            display: flex;
+            animation: slideshow 15s infinite ease-in-out;
         }
         
         .slide {
             width: 33.33%;
             height: 100%;
-            float: left;
             position: relative;
         }
         
@@ -159,17 +159,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5); /* Rozjaśniono overlay z 0.7 na 0.5 */
         }
         
         @keyframes slideshow {
-            0% { left: 0; }
-            25% { left: 0; }
-            33.33% { left: -100%; }
-            58.33% { left: -100%; }
-            66.66% { left: -200%; }
-            91.66% { left: -200%; }
-            100% { left: 0; }
+            0% { transform: translateX(0); }
+            30% { transform: translateX(0); }
+            33.33% { transform: translateX(-33.33%); }
+            63.33% { transform: translateX(-33.33%); }
+            66.66% { transform: translateX(-66.66%); }
+            96.66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
         }
         
         .hero::before {
@@ -355,7 +355,7 @@
         .document-link i {
             margin-right: 8px;
         }
-/* DLACZEGO WARTO */
+        /* DLACZEGO WARTO */
         .why-me {
             padding: 100px 0;
             background-color: var(--light-gray);
@@ -1033,7 +1033,7 @@
             <li><a href="#home">Strona główna</a></li>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#why-me">Dlaczego ja?</a></li>
-<li><a href="#services">Usługi</a></li>
+            <li><a href="#services">Usługi</a></li>
             <li><a href="#projects">Realizacje</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
@@ -1047,10 +1047,10 @@
                 <div class="slide-image" style="background-image: url('images/IMG_7413.JPG');"></div>
             </div>
             <div class="slide">
-                <div class="slide-image" style="background-image: url('images/IMG_5631.JPG');"></div>
+                <div class="slide-image" style="background-image: url('images/IMG_1682.jpg');"></div>
             </div>
             <div class="slide">
-                <div class="slide-image" style="background-image: url('images/IMG_0263.jpg');"></div>
+                <div class="slide-image" style="background-image: url('images/IMG_1629.jpg');"></div>
             </div>
         </div>
         <div class="container hero-content">
@@ -1086,12 +1086,11 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/Marlon piasek.jpg" alt="inż. Tomasz Kordek">
+                    <img src="images/Marcin czolg.jpg" alt="inż. Tomasz Kordek">
                 </div>
             </div>
         </div>
     </section>
-
     <!-- DLACZEGO WARTO WYBRAĆ MNIE -->
     <section class="why-me" id="why-me">
         <div class="container">
@@ -1331,7 +1330,7 @@
             </div>
             
             <div class="google-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10180.036444246906!2d18.884943325236224!3d50.566329071733386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710fe3a9ad85bc7%3A0x9ba7bc6e34dca0d3!2s42-660%20Kalety!5e0!3m2!1spl!2spl!4v1714060401209!5m2!1spl!2spl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.7893562681744!2d18.89160797696811!3d50.56844697159917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710fe5a1abe32b1%3A0x1acf7fc41d1fef8a!2sLipowa%2C%2042-660%20Kalety!5e0!3m2!1spl!2spl!4v1714166631264!5m2!1spl!2spl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
