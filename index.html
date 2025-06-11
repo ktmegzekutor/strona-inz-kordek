@@ -1243,98 +1243,52 @@
     </section>
 
     <!-- KONTAKT -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kontakt</h2>
-            </div>
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p>Zapraszam do kontaktu w celu omówienia szczegółów Twojej inwestycji budowlanej. Oferuję bezpłatną konsultację wstępną, podczas której omówimy zakres usług i możliwości współpracy.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Adres</h3>
-                            <p>42-660 Kalety</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Telefon</h3>
-                            <p><a href="tel:+48792060707">+48 792 060 707</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p><a href="mailto:kordektomek@gmail.com">kordektomek@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Godziny pracy</h3>
-                            <p>Poniedziałek - Piątek: 8:00 - 18:00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Imię i nazwisko" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Telefon">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option value="" disabled selected>Wybierz usługę</option>
-                                <option value="kierownik">Kierownik budowy</option>
-                                <option value="inspektor">Inspektor nadzoru</option>
-                                <option value="przeglady">Przeglądy techniczne</option>
-                                <option value="wyburzenia">Wyburzenia i rozbiórki</option>
-                                <option value="swiadectwa">Świadectwa energetyczne</option>
-                                <option value="audyty">Audyty energetyczne</option>
-                                <option value="inne">Inne zapytanie</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Wiadomość" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: #666;">
-                                <input type="checkbox" required style="margin-top: 4px;">
-                                <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką RODO.</span>
-                            </label>
-                        </div>
-                        <div class="form-submit">
-                            <button type="submit" class="btn">Wyślij wiadomość</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="google-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.7893562681744!2d18.89160797696811!3d50.56844697159917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4710fe5a1abe32b1%3A0x1acf7fc41d1fef8a!2sLipowa%2C%2042-660%20Kalety!5e0!3m2!1spl!2spl!4v1714166631264!5m2!1spl!2spl" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Kontakt</h2>
+    </div>
+    <p style="text-align: center; margin-bottom: 40px;">
+      Zapraszam do kontaktu w celu omówienia szczegółów Twojej inwestycji budowlanej. Oferuję bezpłatną konsultację wstępną.
+    </p>
+    <form action="https://formspree.io/f/xzbnvzpz" method="POST">
+      <input type="hidden" name="_subject" value="Zapytanie ze strony WWW">
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Imię i nazwisko" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="_replyto" class="form-control" placeholder="Adres e-mail" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" class="form-control" placeholder="Telefon kontaktowy">
+      </div>
+      <div class="form-group">
+        <select name="service" class="form-control" required>
+          <option value="" disabled selected>Wybierz usługę</option>
+          <option value="kierownik">Kierownik budowy</option>
+          <option value="inspektor">Inspektor nadzoru</option>
+          <option value="przeglady">Przeglądy techniczne</option>
+          <option value="wyburzenia">Wyburzenia i rozbiórki</option>
+          <option value="swiadectwa">Świadectwa energetyczne</option>
+          <option value="audyty">Audyty energetyczne</option>
+          <option value="inne">Inne</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea name="message" class="form-control" rows="5" placeholder="Wiadomość" required></textarea>
+      </div>
+      <div class="form-group">
+        <label style="display:flex; align-items:flex-start; gap:10px; font-size:0.9rem; color:#666;">
+          <input type="checkbox" required style="margin-top: 4px;">
+          <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie.</span>
+        </label>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn">Wyślij wiadomość</button>
+      </div>
+    </form>
+  </div>
+</section>
     <!-- STOPKA -->
     <footer class="footer">
         <div class="container">
